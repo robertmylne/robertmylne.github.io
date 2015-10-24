@@ -29,11 +29,15 @@
       height: 60px;
       background-color: #f5f5f5;
     }
+    #chat-window {
+    overflow-y: scroll;
+
+    }
   </style>
   <script>
     var app = angular.module("messageApp", ["firebase"]);
     
-    app.controller("messageCtrl", function($scope, $firebaseArray) {
+    app.controller("messageCtrl", function($scope, $window, $firebaseArray) {
   var ref = new Firebase("https://blinding-torch-814.firebaseio.com/messages");
 
   $scope.messages = $firebaseArray(ref);
@@ -59,19 +63,44 @@
     $scope.messageField = null;
   }
   
+  
+  
+  
+  
+  
+  
+  $scope.windowHeight;
+  
+  
+  // Window height
+ $scope.$watch(function(){
+       return $window.innerHeight;
+    }, function(value) {
+       console.log(value);
+       $scope.windowHeight = value;
+   });
+
+
+
     });
+    
+    
+
   </script>
 </head>
 
 <body ng-app="messageApp" ng-controller="messageCtrl">
   <section>
     <div class="container">
-      <div ng-repeat="message in messages">
+      <div id="chat-window" style="height: {{windowHeight-70}}px">
+        <div ng-repeat="message in messages">
         <div ng-class="{'text-right': userField == message.user}">
         <span class="label label-primary " ng-show="userField == message.user">User: {{ message.user }} | {{ message.text }}</span>
         <span class="label label-default" ng-show="userField != message.user">User: {{ message.user }} | {{ message.text }}</span>
         </div>
         </div>
+      </div>
+      
     </div>
 
   </section>
@@ -91,6 +120,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+
 </body>
 
 </html>
