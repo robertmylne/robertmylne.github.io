@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+	<title>Circles</title>
+	<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+	<style>
+	html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	#map {
+		height: 100%;
+		width: 75%;
+	}
+	#options {
+		width: 25%;
+		float: right;
+		padding: 30px;
+	}
+	.unstyled {
+		list-style: none;
+	}
+	.no-padding {
+		padding: 0;
+	}
+	</style>
+</head>
+<body ng-controller="map">
+	<div id="options">
+		<p>Paste CSV code below</p>
+		<textarea name="" id="" cols="30" rows="10" ng-model="csv">81283,-28.16479492190,153.53741455100,1000</textarea>
+	</div>
+	<div id="map"></div>
+</div
+
+
+<script>
+
+angular.module('app', [])
+
+.controller('map', function($scope) {
+
+	$scope.csv = "81283,-28.16479492190,153.53741455100,1000";
+
+	console.log($scope.csv);
+
+	// $scope.sdsa = "
+	// 81283,-28.16479492190,153.53741455100,1000
+	// 97564,-28.14270019530,153.49438476600,350
+	// 130117,-28.09869384770,153.39941406300,100
+	// 135343,-28.09179687500,153.43139648400,1500
+	// 146425,-28.07672119140,153.38342285200,1200
+	// 202773,-28.00079345700,153.33941650400,1600
+	// 221577,-27.97576904300,153.59338378900,22000
+	// 259158,-27.92480468750,153.33239746100,1100
+	// 305141,-27.86279296880,153.31140136700,2250
+	// 401515,-27.73278808590,153.22540283200,800
+	// ";
+
+	// console.log($scope.sdsa);
+
+
+
+// 	map.add = function() {
+// 		map.locations.push({
+// 			center: {lat: Number(map.location.latitude), lng: Number(map.location.longitude)},
+// 			radius: Number(map.location.radius)
+// 		});
+// 		map.init(map.locations);
+// 		map.reset();
+// 	}
+
+// 	map.remove = function(index) {
+// 		map.locations.splice(index, 1);
+// 		map.init(map.locations);
+// 	}
+
+// 	map.reset = function() {
+// 		map.location.latitude = '';
+// 		map.location.longitude = '';
+// 		map.location.radius = '';
+// 	}
+
+// 	map.init = function(locations) {
+
+// 		console.log(locations);
+
+// 		var map = new google.maps.Map(document.getElementById('map'), {
+// 			zoom: 11,
+// 			center: {lat: -27.95, lng: 153.5},
+// 			mapTypeId: google.maps.MapTypeId.TERRAIN
+// 		});
+
+// 		for (var index in locations)
+// 		{
+// 			var cityCircle = new google.maps.Circle({
+// 				strokeColor: '#FF0000',
+// 				strokeOpacity: 0.8,
+// 				strokeWeight: 2,
+// 				fillColor: '#FF0000',
+// 				fillOpacity: 0.35,
+// 				map: map,
+// 				center: locations[index].center,
+// 				radius: locations[index].radius
+// 			});
+// 		}
+// 	}
+
+// 	angular.element(document).ready(function () {
+// 		map.init(map.locations);
+// 	});
+
+// 	map.locations = [
+// 	{
+// 		center: {lat: -27.998576, lng: 153.314296},
+// 		radius: 1000
+// 	},
+// 	{
+// 		center: {lat: -28.14270019530, lng: 153.49438476600},
+// 		radius: 350
+// 	},
+// 	{
+// 		center: {lat: -28.09869384770, lng: 153.43139648400},
+// 		radius: 100
+// 	},
+// 	{
+// 		center: {lat: -28.09179687500, lng: 153.43139648400},
+// 		radius: 1500
+// 	},
+// 	{
+// 		center: {lat: -28.07672119140, lng: 153.38342285200},
+// 		radius: 1200
+// 	},
+// 	{
+// 		center: {lat: -28.00079345700, lng: 153.33941650400},
+// 		radius: 1600
+// 	},
+// 	{
+// 		center: {lat: -27.97576904300, lng: 153.59338378900},
+// 		radius: 22000
+// 	},
+// 	{
+// 		center: {lat: -27.92480468750, lng: 153.33239746100},
+// 		radius: 1100
+// 	},
+// 	{
+// 		center: {lat: -27.86279296880, lng: 153.31140136700},
+// 		radius: 2250
+// 	},
+// 	{
+// 		center: {lat: -27.73278808590, lng: 153.22540283200},
+// 		radius: 800
+// 	}];
+});
+
+</script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?signed_in=true"></script>
+ --></body>
+</html>
